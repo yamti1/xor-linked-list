@@ -1,7 +1,6 @@
 #pragma once
+#include "XorLinkedNode.h"
 
-template <T>
-std::intptr_t to_intptr(T* ptr);
+std::intptr_t to_intptr(XorLinkedNode* ptr);
 
-template <T>
-T* to_ptr(std::intptr_t intptr);
+XorLinkedNode* to_ptr(std::intptr_t intptr);
