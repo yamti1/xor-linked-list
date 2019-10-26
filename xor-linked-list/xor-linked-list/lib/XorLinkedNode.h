@@ -9,7 +9,7 @@ private:
 
 public:
 	// TODO: Change it to prev and then next.
-	XORLinkedNode(int value, XORLinkedNode* next, XORLinkedNode* prev);
+	XORLinkedNode(int value, XORLinkedNode* prev, XORLinkedNode* next);
 
 	XORLinkedNode* get_next_or_prev(XORLinkedNode* other);
 	void set_both(XORLinkedNode* prev, XORLinkedNode* next);

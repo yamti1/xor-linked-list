@@ -1,7 +1,7 @@
 #include "XorLinkedNode.h"
 #include "Utils.h"
 
-XORLinkedNode::XORLinkedNode(int value, XORLinkedNode* next, XORLinkedNode* prev) {
+XORLinkedNode::XORLinkedNode(int value, XORLinkedNode* prev, XORLinkedNode* next) {
 	this->__value = value;
 	this->set_both(prev, next);
 }
