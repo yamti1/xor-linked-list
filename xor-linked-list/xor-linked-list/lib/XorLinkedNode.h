@@ -1,16 +1,17 @@
 #pragma once
 #include <cstdint>
 
-class XorLinkedNode
+class XORLinkedNode
 {
 private:
 	std::intptr_t __both;
 	int __value;
 
 public:
-	XorLinkedNode(int value, XorLinkedNode* next, XorLinkedNode* prev);
+	// TODO: Change it to prev and then next.
+	XORLinkedNode(int value, XORLinkedNode* next, XORLinkedNode* prev);
 
-	XorLinkedNode* get_next_or_prev(XorLinkedNode* other);
-	void set_both(XorLinkedNode* prev, XorLinkedNode* next);
+	XORLinkedNode* get_next_or_prev(XORLinkedNode* other);
+	void set_both(XORLinkedNode* prev, XORLinkedNode* next);
 };
 

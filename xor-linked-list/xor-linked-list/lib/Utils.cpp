@@ -3,10 +3,10 @@
 #include "Utils.h"
 
 
-std::intptr_t to_intptr(XorLinkedNode* ptr) {
+std::intptr_t to_intptr(XORLinkedNode* ptr) {
 	return reinterpret_cast<std::intptr_t>(ptr);
 }
 
-XorLinkedNode* to_ptr(std::intptr_t &intptr) {
-	return reinterpret_cast<XorLinkedNode*>(intptr);
+XORLinkedNode* to_ptr(std::intptr_t &intptr) {
+	return reinterpret_cast<XORLinkedNode*>(intptr);
 }
