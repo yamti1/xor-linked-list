@@ -13,3 +13,11 @@ XORLinkedNode* XORLinkedNode::get_next_or_prev(XORLinkedNode* other) {
 void XORLinkedNode::set_both(XORLinkedNode* prev, XORLinkedNode* next) {
 	this->__both = to_intptr(next) ^ to_intptr(prev);
 }
+
+int XORLinkedNode::get_value() {
+	return this->__value;
+}
+
+void XORLinkedNode::set_value(int value) {
+	this->__value = value;
+}
