@@ -10,6 +10,7 @@ private:
 
 public:
 	XORLinkedList();
+	~XORLinkedList();
 
 	void add(int value);
 	int get(unsigned int index);

@@ -1,5 +1,6 @@
 #include <stdexcept>
 #include <string>
+#include <iostream>
 
 #include "XORLinkedList.h"
 
@@ -8,8 +9,24 @@ XORLinkedList::XORLinkedList() {
 	this->__last = nullptr;
 }
 
+XORLinkedList::~XORLinkedList() {
+	XORLinkedNode* current_node = this->__first;
+	XORLinkedNode* prev_node = nullptr;
+	XORLinkedNode* tmp_node = current_node;
+
+	while (current_node != nullptr)
+	{
+		// Advance to the next node
+		tmp_node = current_node;
+		current_node = current_node->get_next_or_prev(prev_node);
+		prev_node = tmp_node;
+
+		delete prev_node;
+	}
+}
+
 void XORLinkedList::add(int value) {
-	XORLinkedNode* node_ptr = &XORLinkedNode(value, this->__last, nullptr);
+	XORLinkedNode* node_ptr = new XORLinkedNode(value, this->__last, nullptr);
 	
 	// If this is the first node
 	if (this->__first == nullptr) {
