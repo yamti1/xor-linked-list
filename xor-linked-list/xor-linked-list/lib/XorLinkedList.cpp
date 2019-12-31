@@ -94,16 +94,12 @@ int XORLinkedList::get(unsigned int index) {
 
 	for (size_t i = 0; i < index; i++)
 	{
-		// Advance to the next node
-		tmp_node = current_node;
-		current_node = current_node->get_next_or_prev(prev_node);
-
+		advance_node_ptrs(current_node, prev_node);
+		
 		// Null means the list is over
 		if (current_node == nullptr) {
 			throw std::out_of_range("Attempted access to index " + std::to_string(index) + " in a list of length " + std::to_string(i + 1));
 		}
-
-		prev_node = tmp_node;
 	}
 
 	return current_node->get_value();
