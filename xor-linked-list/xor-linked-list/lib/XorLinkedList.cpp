@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "XORLinkedList.h"
+#include "Utils.h"
 
 XORLinkedList::XORLinkedList() {
 	this->__first = nullptr;
@@ -12,15 +13,10 @@ XORLinkedList::XORLinkedList() {
 XORLinkedList::~XORLinkedList() {
 	XORLinkedNode* current_node = this->__first;
 	XORLinkedNode* prev_node = nullptr;
-	XORLinkedNode* tmp_node = current_node;
 
 	while (current_node != nullptr)
 	{
-		// Advance to the next node
-		tmp_node = current_node;
-		current_node = current_node->get_next_or_prev(prev_node);
-		prev_node = tmp_node;
-
+		advance_node_ptrs(current_node, prev_node);
 		delete prev_node;
 	}
 }
@@ -33,16 +29,11 @@ XORLinkedList::XORLinkedList(const XORLinkedList& other) {
 
 	XORLinkedNode* current_node = other.__first;
 	XORLinkedNode* prev_node = nullptr;
-	XORLinkedNode* tmp_node = current_node;
 
 	while (current_node != nullptr)
 	{
 		this->add(current_node->get_value());
-
-		// Advance to the next node
-		tmp_node = current_node;
-		current_node = current_node->get_next_or_prev(prev_node);
-		prev_node = tmp_node;
+		advance_node_ptrs(current_node, prev_node);
 	}
 }
 
@@ -53,31 +44,18 @@ XORLinkedList& XORLinkedList::operator=(const XORLinkedList& other) {
 	XORLinkedNode* other_current_node = other.__first;
 	XORLinkedNode* other_prev_node = nullptr;
 	
-	XORLinkedNode* tmp_node = nullptr;
-
 	while (this_current_node != nullptr && other_current_node != nullptr)
 	{
 		this_current_node->set_value(other_current_node->get_value());
 
-		// Advance to the next node in this linked list
-		tmp_node = this_current_node;
-		this_current_node = this_current_node->get_next_or_prev(this_prev_node);
-		this_prev_node = tmp_node;
-
-		// Advance to the next node in the other linked list
-		tmp_node = other_current_node;
-		other_current_node = other_current_node->get_next_or_prev(other_prev_node);
-		other_prev_node = tmp_node;
+		advance_node_ptrs(this_current_node, this_prev_node);
+		advance_node_ptrs(other_current_node, other_prev_node);
 	}
 
 	// If there are more nodes in this linked list delete them
 	while (this_current_node != nullptr)
 	{
-		// Advance to the next node in this linked list
-		tmp_node = this_current_node;
-		this_current_node = this_current_node->get_next_or_prev(this_prev_node);
-		this_prev_node = tmp_node;
-
+		advance_node_ptrs(this_current_node, this_prev_node);
 		delete this_prev_node;
 	}
 
@@ -85,11 +63,7 @@ XORLinkedList& XORLinkedList::operator=(const XORLinkedList& other) {
 	while (other_current_node != nullptr)
 	{
 		this->add(other_current_node->get_value());
-
-		// Advance to the next node in the other linked list
-		tmp_node = other_current_node;
-		other_current_node = other_current_node->get_next_or_prev(other_prev_node);
-		other_prev_node = tmp_node;
+		advance_node_ptrs(other_current_node, other_prev_node);
 	}
 
 	return *this;
