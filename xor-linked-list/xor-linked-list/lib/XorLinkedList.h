@@ -12,6 +12,9 @@ public:
 	XORLinkedList();
 	~XORLinkedList();
 
+	// Copy
+	XORLinkedList(const XORLinkedList& other);
+
 	void add(int value);
 	int get(unsigned int index);
 };

@@ -25,6 +25,25 @@ XORLinkedList::~XORLinkedList() {
 	}
 }
 
+XORLinkedList::XORLinkedList(const XORLinkedList& other) {
+	this->__first = other.__first;
+	this->__last = other.__last;
+
+	XORLinkedNode* current_node = other.__first;
+	XORLinkedNode* prev_node = nullptr;
+	XORLinkedNode* tmp_node = current_node;
+
+	while (current_node != nullptr)
+	{
+		this->add(current_node->get_value());
+
+		// Advance to the next node
+		tmp_node = current_node;
+		current_node = current_node->get_next_or_prev(prev_node);
+		prev_node = tmp_node;
+	}
+}
+
 void XORLinkedList::add(int value) {
 	XORLinkedNode* node_ptr = new XORLinkedNode(value, this->__last, nullptr);
 	
