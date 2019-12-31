@@ -14,6 +14,7 @@ public:
 
 	// Copy
 	XORLinkedList(const XORLinkedList& other);
+	XORLinkedList& operator=(const XORLinkedList& other);
 
 	void add(int value);
 	int get(unsigned int index);
