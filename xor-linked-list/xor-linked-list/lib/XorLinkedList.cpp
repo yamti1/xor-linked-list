@@ -17,8 +17,16 @@ XORLinkedList::~XORLinkedList() {
 	while (current_node != nullptr)
 	{
 		advance_node_ptrs(current_node, prev_node);
-		delete prev_node;
+
+		// Delete the node before prev.
+		// Deleting prev itself results in undefined behavior because 
+		// its value is used in the next iteration.
+		delete prev_node->get_next_or_prev(current_node);
 	}
+
+	// Delete the last remaining node in the list because
+	// the loop stops before it can delete it.
+	delete this->__last;
 }
 
 
