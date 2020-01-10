@@ -5,14 +5,16 @@
 #include "XORLinkedList.h"
 #include "Utils.h"
 
-XORLinkedList::XORLinkedList() {
-	this->__first = nullptr;
-	this->__last = nullptr;
-}
 
-XORLinkedList::~XORLinkedList() {
-	XORLinkedNode* current_node = this->__first;
-	XORLinkedNode* prev_node = nullptr;
+// Delete all nodes from `current_node` to the end of the list.
+// current_node: The first node to be deleted. May be null.
+// prev_node: The node before current_node. May be null.
+void XORLinkedList::_delete_nodes_from(XORLinkedNode* current_node, XORLinkedNode* prev_node)
+{
+	if (current_node == nullptr) return;
+
+	// Move to the next node so that the node before `prev_node` won't be deleted.
+	advance_node_ptrs(current_node, prev_node);
 
 	while (current_node != nullptr)
 	{
@@ -24,9 +26,19 @@ XORLinkedList::~XORLinkedList() {
 		delete prev_node->get_next_or_prev(current_node);
 	}
 
-	// Delete the last remaining node in the list because
+	// Delete the last remaining node because
 	// the loop stops before it can delete it.
-	delete this->__last;
+	delete prev_node;
+}
+
+
+XORLinkedList::XORLinkedList() {
+	this->__first = nullptr;
+	this->__last = nullptr;
+}
+
+XORLinkedList::~XORLinkedList() {
+	_delete_nodes_from(this->__first, nullptr);
 }
 
 
@@ -61,10 +73,8 @@ XORLinkedList& XORLinkedList::operator=(const XORLinkedList& other) {
 	}
 
 	// If there are more nodes in this linked list delete them
-	while (this_current_node != nullptr)
-	{
-		advance_node_ptrs(this_current_node, this_prev_node);
-		delete this_prev_node;
+	if (this_current_node != nullptr) {
+		_delete_nodes_from(this_current_node, this_prev_node);
 	}
 
 	// Else, If there are more nodes in the other linked list, add them to this list

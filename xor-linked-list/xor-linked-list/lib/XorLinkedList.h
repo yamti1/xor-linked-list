@@ -8,6 +8,9 @@ private:
 	XORLinkedNode* __first;
 	XORLinkedNode* __last;
 
+protected:
+	void _delete_nodes_from(XORLinkedNode* current_node, XORLinkedNode* prev_node);
+
 public:
 	XORLinkedList();
 	~XORLinkedList();
