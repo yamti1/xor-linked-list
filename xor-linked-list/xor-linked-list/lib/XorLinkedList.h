@@ -19,6 +19,7 @@ public:
 
 	// Move
 	XORLinkedList(XORLinkedList&& other) noexcept;
+	XORLinkedList& operator=(XORLinkedList&& other) noexcept;
 
 	void add(int value);
 	int get(unsigned int index);

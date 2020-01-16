@@ -69,6 +69,12 @@ XORLinkedList::XORLinkedList(XORLinkedList&& other) noexcept {
 	this->__swap(other);
 }
 
+// Move Assignment
+XORLinkedList& XORLinkedList::operator=(XORLinkedList&& other) noexcept {
+	this->__swap(other);
+	return *this;
+}
+
 
 void XORLinkedList::add(int value) {
 	XORLinkedNode* node_ptr = new XORLinkedNode(value, this->__last, nullptr);
