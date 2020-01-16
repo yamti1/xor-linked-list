@@ -65,7 +65,7 @@ XORLinkedList& XORLinkedList::operator=(XORLinkedList tmp) {
 
 
 // Move Contructor
-XORLinkedList::XORLinkedList(XORLinkedList&& other) {
+XORLinkedList::XORLinkedList(XORLinkedList&& other) noexcept {
 	this->__swap(other);
 }
 
