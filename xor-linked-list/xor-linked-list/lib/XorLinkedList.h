@@ -9,9 +9,6 @@ private:
 	XORLinkedNode* __last;
 	void __swap(XORLinkedList& other);
 
-protected:
-	void _delete_nodes_from(XORLinkedNode* current_node, XORLinkedNode* prev_node);
-
 public:
 	XORLinkedList();
 	~XORLinkedList();
