@@ -1,6 +1,7 @@
 #include <stdexcept>
 #include <string>
 #include <iostream>
+#include <utility>
 
 #include "XORLinkedList.h"
 #include "Utils.h"
@@ -48,13 +49,8 @@ XORLinkedList::XORLinkedList(const XORLinkedList& other) {
 
 // Swaps this with another XORLinkedList
 void XORLinkedList::__swap(XORLinkedList& other) {
-	XORLinkedNode* tmp = this->__first;
-	this->__first = other.__first;
-	other.__first = tmp;
-
-	tmp = this->__last;
-	this->__last = other.__last;
-	other.__last = tmp;
+	std::swap(this->__first, other.__first);
+	std::swap(this->__last, other.__last);
 }
 
 // Copy Assignment
