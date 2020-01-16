@@ -44,8 +44,8 @@ XORLinkedList::~XORLinkedList() {
 
 // Copy Constructor
 XORLinkedList::XORLinkedList(const XORLinkedList& other) {
-	this->__first = other.__first;
-	this->__last = other.__last;
+	this->__first = nullptr;
+	this->__last = nullptr;
 
 	XORLinkedNode* current_node = other.__first;
 	XORLinkedNode* prev_node = nullptr;
