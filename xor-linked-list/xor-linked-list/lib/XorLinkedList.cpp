@@ -18,7 +18,7 @@ void XORLinkedList::_delete_nodes_from(XORLinkedNode* current_node, XORLinkedNod
 
 	while (current_node != nullptr)
 	{
-		advance_node_ptrs(current_node, prev_node);
+ 		advance_node_ptrs(current_node, prev_node);
 
 		// Delete the node before prev.
 		// Deleting prev itself results in undefined behavior because 
@@ -42,7 +42,7 @@ XORLinkedList::~XORLinkedList() {
 }
 
 
-// Copy
+// Copy Constructor
 XORLinkedList::XORLinkedList(const XORLinkedList& other) {
 	this->__first = other.__first;
 	this->__last = other.__last;
@@ -57,36 +57,26 @@ XORLinkedList::XORLinkedList(const XORLinkedList& other) {
 	}
 }
 
-XORLinkedList& XORLinkedList::operator=(const XORLinkedList& other) {
-	XORLinkedNode* this_current_node = this->__first;
-	XORLinkedNode* this_prev_node = nullptr;
+// Swaps this with another XORLinkedList
+void XORLinkedList::__swap(XORLinkedList& other) {
+	XORLinkedNode* tmp = this->__first;
+	this->__first = other.__first;
+	other.__first = tmp;
 
-	XORLinkedNode* other_current_node = other.__first;
-	XORLinkedNode* other_prev_node = nullptr;
-	
-	while (this_current_node != nullptr && other_current_node != nullptr)
-	{
-		this_current_node->set_value(other_current_node->get_value());
-
-		advance_node_ptrs(this_current_node, this_prev_node);
-		advance_node_ptrs(other_current_node, other_prev_node);
-	}
-
-	// If there are more nodes in this linked list delete them
-	if (this_current_node != nullptr) {
-		_delete_nodes_from(this_current_node, this_prev_node);
-	}
-
-	// Else, If there are more nodes in the other linked list, add them to this list
-	while (other_current_node != nullptr)
-	{
-		this->add(other_current_node->get_value());
-		advance_node_ptrs(other_current_node, other_prev_node);
-	}
-
-	return *this;
+	tmp = this->__last;
+	this->__last = other.__last;
+	other.__last = tmp;
 }
 
+// Copy Assignement
+XORLinkedList& XORLinkedList::operator=(XORLinkedList tmp) {
+	// Implements the Copy-and-Swap Idiom:
+	// The assigned object `tmp` is copied when it is passed as an argument to this method.
+	// Then it is swapped with `this`,
+	// And then, when the method returns, `tmp` is deleted.
+	this->__swap(tmp);
+	return *this;
+}
 
 
 void XORLinkedList::add(int value) {
