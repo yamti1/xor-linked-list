@@ -17,7 +17,8 @@ public:
 	XORLinkedList(const XORLinkedList& other);
 	XORLinkedList& operator=(XORLinkedList tmp);
 
-	// TODO: Move
+	// Move
+	XORLinkedList(XORLinkedList&& other);
 
 	void add(int value);
 	int get(unsigned int index);

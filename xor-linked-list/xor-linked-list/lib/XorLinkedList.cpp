@@ -57,7 +57,7 @@ void XORLinkedList::__swap(XORLinkedList& other) {
 	other.__last = tmp;
 }
 
-// Copy Assignement
+// Copy Assignment
 XORLinkedList& XORLinkedList::operator=(XORLinkedList tmp) {
 	// Implements the Copy-and-Swap Idiom:
 	// The assigned object `tmp` is copied when it is passed as an argument to this method.
@@ -65,6 +65,12 @@ XORLinkedList& XORLinkedList::operator=(XORLinkedList tmp) {
 	// And then, when the method returns, `tmp` is deleted.
 	this->__swap(tmp);
 	return *this;
+}
+
+
+// Move Contructor
+XORLinkedList::XORLinkedList(XORLinkedList&& other) {
+	this->__swap(other);
 }
 
 
