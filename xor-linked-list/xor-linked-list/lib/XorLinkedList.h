@@ -1,27 +1,14 @@
 #pragma once
-
-#include "XORLinkedNode.h"
+#include <memory>
+#include "XORLinkedListHandle.h"
 
 class XORLinkedList
 {
 private:
-	XORLinkedNode* __first;
-	XORLinkedNode* __last;
-	void __swap(XORLinkedList& other);
+	std::unique_ptr<XORLinkedListHandle> __list_handle;
 
 public:
 	XORLinkedList();
-	~XORLinkedList();
-
-	// Copy
-	XORLinkedList(const XORLinkedList& other);
-	XORLinkedList& operator=(XORLinkedList tmp);
-
-	// Move
-	XORLinkedList(XORLinkedList&& other) noexcept;
-	XORLinkedList& operator=(XORLinkedList&& other) noexcept;
-
-	void add(int value);
 	int get(unsigned int index);
 };
 
