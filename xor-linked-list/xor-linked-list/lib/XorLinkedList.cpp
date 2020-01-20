@@ -29,3 +29,7 @@ int XORLinkedList::get(unsigned int index) {
 
 	return current_node->get_value();
 }
+
+void XORLinkedList::add(int value) {
+	return this->__list_handle.get()->add(value);
+}
