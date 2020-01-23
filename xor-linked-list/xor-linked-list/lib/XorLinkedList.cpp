@@ -63,7 +63,7 @@ void XORLinkedList::add(int value) {
 // Get the value at the given index.
 // May be given negative indexes for reverse indexing,
 // where [-1] means the last value, [-2] means the value before that, etc.
-int XORLinkedList::operator[](int index)
+int XORLinkedList::operator[](const int index)
 {
 	if (0 <= index) {
 		return this->get(index);
