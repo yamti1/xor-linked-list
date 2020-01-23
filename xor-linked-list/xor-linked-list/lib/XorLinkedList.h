@@ -12,8 +12,8 @@ public:
 
 	int get_length();
 
-	int get(unsigned int index);
-	int get_reverse(unsigned int index);
+	int get(const unsigned int& index);
+	int get_reverse(const unsigned int& index);
 	void add(int value);
 
 	int operator[](int index);
