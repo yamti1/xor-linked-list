@@ -9,11 +9,11 @@
 
 
 XORLinkedList::XORLinkedList() :
-	__list_handle(std::make_unique<XORLinkedListHandle>()) 
+	__list_handle(XORLinkedListHandle()) 
 {}
 
 int XORLinkedList::get(unsigned int index) {
-	XORLinkedNode* current_node = this->__list_handle.get()->get_first();
+	XORLinkedNode* current_node = this->__list_handle.get_first();
 	XORLinkedNode* prev_node = nullptr;
 	XORLinkedNode* tmp_node = current_node;
 
@@ -31,5 +31,5 @@ int XORLinkedList::get(unsigned int index) {
 }
 
 void XORLinkedList::add(int value) {
-	return this->__list_handle.get()->add(value);
+	return this->__list_handle.add(value);
 }
