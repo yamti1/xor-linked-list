@@ -1,17 +1,15 @@
 #pragma once
-
-#include "XORLinkedNode.h"
+#include "XORLinkedListHandle.h"
 
 class XORLinkedList
 {
 private:
-	XORLinkedNode* __first;
-	XORLinkedNode* __last;
+	XORLinkedListHandle __list_handle;
 
 public:
 	XORLinkedList();
 
-	void add(int value);
 	int get(unsigned int index);
+	void add(int value);
 };
 
