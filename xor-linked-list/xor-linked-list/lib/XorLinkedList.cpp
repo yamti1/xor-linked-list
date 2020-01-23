@@ -1,7 +1,6 @@
 #include <stdexcept>
 #include <string>
 #include <iostream>
-#include <memory>
 
 #include "XORLinkedList.h"
 #include "XORLinkedNode.h"
@@ -9,8 +8,13 @@
 
 
 XORLinkedList::XORLinkedList() :
-	__list_handle(XORLinkedListHandle()) 
+	__list_handle(XORLinkedListHandle()),
+	__length()
 {}
+
+int XORLinkedList::get_length() {
+	return this->__length;
+}
 
 // Get the value stored at index, starting from edge_node.
 // index = 0 means the value at the edge node,
@@ -52,5 +56,6 @@ int XORLinkedList::get_reverse(unsigned int index)
 }
 
 void XORLinkedList::add(int value) {
-	return this->__list_handle.add(value);
+	this->__list_handle.add(value);
+	this->__length++;
 }
