@@ -1,7 +1,8 @@
 #include "XORLinkedNode.h"
 
-
+// Iterates on a XORLinkedList according to the Iterator protocol in C++
 class XORLinkedListIterator {
+	// The underlying iterator
 	class __Iterator {
 	private:
 		// TODO: What should happen with these on delete?

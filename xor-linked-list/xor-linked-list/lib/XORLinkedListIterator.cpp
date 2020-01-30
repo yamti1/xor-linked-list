@@ -32,6 +32,7 @@ int XORLinkedListIterator::__Iterator::operator*()
 
 bool XORLinkedListIterator::__Iterator::operator==(const __Iterator& other)
 {
+	// This causes the iteration to stop because `other` is the `end` iterator which has __current_node of null.
 	return this->__current_node == other.__current_node;
 }
 
