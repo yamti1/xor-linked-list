@@ -79,3 +79,8 @@ int XORLinkedList::operator[](const int index)
 		throw std::out_of_range("Attempted access to index " + std::to_string(index) + " in a list of length " + std::to_string(this->get_length()));
 	}
 }
+
+XORLinkedListIterator XORLinkedList::iter()
+{
+	return XORLinkedListIterator(this->__list_handle.get_first());
+}
