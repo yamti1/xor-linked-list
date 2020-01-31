@@ -1,5 +1,6 @@
 #pragma once
 #include "XORLinkedListHandle.h"
+#include "XORLinkedListIterator.h"
 
 class XORLinkedList
 {
@@ -17,5 +18,7 @@ public:
 	void add(int value);
 
 	int operator[](int index);
+
+	XORLinkedListIterator iter();
 };
 
