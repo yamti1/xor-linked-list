@@ -20,5 +20,6 @@ public:
 	int operator[](int index);
 
 	XORLinkedListIterator iter();
+	XORLinkedListIterator reverse_iter();
 };
 
