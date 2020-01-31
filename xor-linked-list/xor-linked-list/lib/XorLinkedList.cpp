@@ -84,3 +84,8 @@ XORLinkedListIterator XORLinkedList::iter()
 {
 	return XORLinkedListIterator(this->__list_handle.get_first());
 }
+
+XORLinkedListIterator XORLinkedList::reverse_iter()
+{
+	return XORLinkedListIterator(this->__list_handle.get_last());
+}
