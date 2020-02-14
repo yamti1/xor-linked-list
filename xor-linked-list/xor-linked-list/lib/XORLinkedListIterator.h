@@ -25,29 +25,29 @@ class XORLinkedListIterator {
 			return this->__current_node->get_value();
 		}
 
-		bool operator==(const __Iterator<T>& other) {
+		bool operator==(const __Iterator& other) {
 			// This causes the iteration to stop because `other` is the `end` iterator which has __current_node of null.
 			return this->__current_node == other.__current_node;
 		}
 
-		bool operator!=(const __Iterator<T>& other) {
+		bool operator!=(const __Iterator& other) {
 			return !(*this == other);
 		}
 	};
 
 private:
-	__Iterator<T> __iterator;
+	__Iterator __iterator;
 
 public:
 	XORLinkedListIterator(XORLinkedNode<T>* const first)
 		: __iterator(first)
 	{}
 	
-	__Iterator<T> begin() {
+	__Iterator begin() {
 		return this->__iterator;
 	}
 
-	__Iterator<T> end() {
+	__Iterator end() {
 		return __Iterator(nullptr);
 	}
 };
