@@ -1,4 +1,7 @@
 #pragma once
+#include <stdexcept>
+#include <string>
+
 #include "XORLinkedListHandle.h"
 #include "XORLinkedListIterator.h"
 
