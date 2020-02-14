@@ -6,7 +6,7 @@ class XORLinkedNode
 {
 private:
 	std::intptr_t __both;
-	int __value;
+	T __value;
 
 public:
 	XORLinkedNode(T value, XORLinkedNode<T>* prev, XORLinkedNode<T>* next) {
