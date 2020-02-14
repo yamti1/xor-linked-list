@@ -151,14 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="lib\Utils.cpp" />
-    <ClCompile Include="lib\XORLinkedList.cpp" />
-    <ClCompile Include="lib\XORLinkedNode.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lib\Utils.h" />
     <ClInclude Include="lib\XORLinkedList.h" />
+    <ClInclude Include="lib\XORLinkedListHandle.h" />
+    <ClInclude Include="lib\XORLinkedListIterator.h" />
     <ClInclude Include="lib\XORLinkedNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
