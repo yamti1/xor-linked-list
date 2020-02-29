@@ -43,6 +43,17 @@ public:
 		__length()
 	{}
 
+	template <size_t N>
+	XORLinkedList(const T (&arr)[N]) :
+		__list_handle(XORLinkedListHandle<T>()),
+		__length()
+	{
+		for (size_t i = 0; i < N; i++)
+		{
+			this->add(arr[i]);
+		}
+	}
+
 	int get_length() {
 		return this->__length;
 	}
