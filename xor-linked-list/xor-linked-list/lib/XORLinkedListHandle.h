@@ -33,7 +33,7 @@ public:
 		XORLinkedNode<T>* current_node = this->__first;
 		XORLinkedNode<T>* prev_node = nullptr;
 
-		while (current_node != nullptr)
+		while (nullptr != current_node )
 		{
 			advance_node_ptrs<T>(current_node, prev_node);
 
@@ -56,7 +56,7 @@ public:
 		XORLinkedNode<T>* current_node = other.__first;
 		XORLinkedNode<T>* prev_node = nullptr;
 
-		while (current_node != nullptr)
+		while (nullptr != current_node)
 		{
 			this->add(current_node->get_value());
 			advance_node_ptrs<T>(current_node, prev_node);
@@ -89,7 +89,7 @@ public:
 		XORLinkedNode<T>* node_ptr = new XORLinkedNode<T>(value, this->__last, nullptr);
 
 		// If this is the first node
-		if (this->__first == nullptr) {
+		if (nullptr == this->__first) {
 			this->__first = node_ptr;
 			this->__last = node_ptr;
 			return;

@@ -29,7 +29,7 @@ private:
 			advance_node_ptrs<T>(current_node, prev_node);
 
 			// Null means the list is over
-			if (current_node == nullptr) {
+			if (nullptr == current_node {
 				throw std::out_of_range("Attempted access to index " + std::to_string(index) + " in a list of length " + std::to_string(i + 1));
 			}
 		}
@@ -107,4 +107,3 @@ public:
 		return XORLinkedListIterator<T>(this->__list_handle.get_last());
 	}
 };
-
